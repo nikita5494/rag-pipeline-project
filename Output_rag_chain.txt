@@ -1,0 +1,238 @@
+D:\nik\rag-pipeline-project\rag_chain.py:7: DeprecationWarning: `langchain-community` is being sunset and is no longer actively maintained. See https://github.com/langchain-ai/langchain-community/issues/674 for details and migration guidance toward standalone integration packages.
+  from langchain_community.vectorstores import Chroma
+D:\nik\rag-pipeline-project\rag_chain.py:19: LangChainDeprecationWarning: The class `HuggingFaceEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 1.0. An updated version of the class exists in the `langchain-huggingface package and should be used instead. To use it run `pip install -U `langchain-huggingface` and import as `from `langchain_huggingface import HuggingFaceEmbeddings``.
+  embeddings = HuggingFaceEmbeddings(
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 103/103 [00:00<00:00, 2960.07it/s]
+D:\nik\rag-pipeline-project\rag_chain.py:22: LangChainDeprecationWarning: The class `Chroma` was deprecated in LangChain 0.2.9 and will be removed in 1.0. An updated version of the class exists in the `langchain-chroma package and should be used instead. To use it run `pip install -U `langchain-chroma` and import as `from `langchain_chroma import Chroma``.
+  db = Chroma(
+config.json: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 608/608 [00:00<00:00, 2.23MB/s]
+C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\huggingface_hub\file_download.py:142: UserWarning: `huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your machine does not support them in C:\Users\USER\.cache\huggingface\hub\models--TinyLlama--TinyLlama-1.1B-Chat-v1.0. Caching files will still work but in a degraded version that might require more space on your disk. This warning can be disabled by setting the `HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.
+To support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In order to activate developer mode, see this article: https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+  warnings.warn(message)
+tokenizer_config.json: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 1.29k/1.29k [00:00<00:00, 2.27MB/s]
+tokenizer.model: downloading bytes: ███████████████████████████████████████████████████████████████████████████████████████████████████|  346kB, 33.8kB/s
+tokenizer.model: reconstructing file: 100%|███████████████████████████████████████████████████████████████████████████████████|  500kB /  500kB, 48.8kB/s
+tokenizer.json: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 1.84M/1.84M [00:00<00:00, 58.3MB/s]
+special_tokens_map.json: 100%|█████████████████████████████████████████████████████████████████████████████████████████████| 551/551 [00:00<00:00, 701kB/s]
+model.safetensors: downloading bytes: █████████████████████████████████████████████████████████████████████████████████████████████████| 1.90GB, 33.2MB/s
+model.safetensors: reconstructing file: 100%|█████████████████████████████████████████████████████████████████████████████████| 2.20GB / 2.20GB,  133MB/s
+Loading weights: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 201/201 [00:00<00:00, 2397.81it/s]
+generation_config.json: 100%|██████████████████████████████████████████████████████████████████████████████████████████████| 124/124 [00:00<00:00, 358kB/s]
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer LlamaTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+
+============================================================
+Q: What is ASIL and how is it determined?
+============================================================
+
+A: Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+ASIL C
+Medium-high
+integrity
+AEB (partial),
+EPS assistance
+Formal analysis, MC/DC
+coverage, FMEDA
+ASIL D
+Highest safety
+integrity
+AEB (full),
+brake-by-wire
+Formal verification,
+hardware redundancy,
+ASIL D SW requirements
+2.1 ASIL Determination Parameters
+The ASIL of a safety goal is determined by evaluating three parameters for each hazardous event identified in
+the HARA:
+ ■ Severity (S0–S3): Potential harm to persons. S0 = no injuries; S1 = light injuries; S2 =
+severe/life-threatening injuries (survival probable); S3 = life-threatening injuries (survival uncertain) or fatal.
+■ Exposure (E0–E4): How frequently the vehicle and its occupants are in the operational situation where the
+hazardous event could occur. E0 = incredibly unlikely; E4 = high probability (many driving hours per day).
+
+with the Classic Platform's independent ASIL B actuation safety, achieving an effective ASIL D system-level
+requirement through decomposition.
+ Document compiled from AUTOSAR specifications (R19-11 through R25-11), industry technical reports, and domain
+ expertise. For RAG pipeline use. AUTOSAR® is a registered trademark.
+
+architecture framework within which ISO 26262-compliant software is developed.
+2. Automotive Safety Integrity Levels (ASIL)
+The Automotive Safety Integrity Level (ASIL) is the central risk classification mechanism in ISO 26262. It is
+determined during the Hazard Analysis and Risk Assessment (HARA) process and ranges from QM (Quality
+Management, no specific safety requirements) to ASIL D (the highest integrity level). The ASIL quantifies the
+safety risk of a hazardous event and drives the stringency of all subsequent safety requirements.
+ASIL Level
+Risk Level
+Typical Application
+Required Measures
+QM
+(Quality Mgt)
+No safety
+requirement
+Non-safety-relevant
+functions
+Standard quality
+management only
+ASIL A
+Lowest safety
+integrity
+Windscreen wiper,
+interior lighting
+Basic SW tests,
+
+events.
+■ 4. S/E/C Classification: Assign severity, exposure, and controllability parameters.
+■ 5. ASIL Determination: Apply the ASIL classification table.
+■ 6. Safety Goal Definition: For each ASIL A–D hazardous event, define a safety goal expressed as a
+functional safety requirement (e.g., 'The ACC system shall not cause unintended braking exceeding 3 m/s²').
+5.2 HARA Example: Adaptive Cruise Control (ACC)
+For an ACC system, a representative HARA might identify the following hazardous events:
+ ■ Unintended maximum deceleration on motorway (S3, E4, C2) → ASIL C: ACC falsely brakes to
+maximum deceleration while following traffic at 130 km/h. High severity (rear-end collision risk), high
+
+Question: What is ASIL and how is it determined?
+Helpful Answer:ASIL is a safety goal determination parameter used in the ISO 26262 process for safety-relevant systems. It quantifies the safety risk of a hazardous event and drives the stringency of all subsequent safety requirements. In the process, ASIL is determined during the HARA phase to ensure that the highest safety risk is identified and addressed.
+
+📚 Sources:
+  1. docs\ISO_26262_Functional_Safety_Overview.pdf (page 1)
+  2. docs\AUTOSAR_Architecture_Overview.pdf (page 8)
+  3. docs\ISO_26262_Functional_Safety_Overview.pdf (page 0)
+  4. docs\ISO_26262_Functional_Safety_Overview.pdf (page 3)
+
+Loading weights: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 103/103 [00:00<00:00, 2956.89it/s]
+Loading weights: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 201/201 [00:00<00:00, 3027.79it/s]
+
+============================================================
+Q: Explain the difference between AUTOSAR Classic and Adaptive Platform
+============================================================
+
+A: Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+3. AUTOSAR Adaptive Platform Architecture
+The Adaptive Platform (AP) was introduced in 2017 to address the requirements of high-performance computing
+applications in vehicles — particularly autonomous driving, sensor fusion, AI/ML inference, and over-the-air
+software updates. The AP is built on a POSIX-compliant OS and supports dynamic software loading and
+service-oriented communication.
+3.1 AUTOSAR Runtime for Adaptive Applications (ARA)
+The Adaptive Platform defines the ARA as the standardised interface between Adaptive Applications (AA) and
+the platform services. ARA consists of two types of interfaces:
+ ■ ara::com: Service-oriented communication API. Adaptive Applications discover and communicate with
+
+■ Fields: Combination of event and getter/setter methods. Represents a persistent value that can be read,
+written, and subscribed to.
+■ Serialisation: SOME/IP defines a binary serialisation format for all data types. The Adaptive Platform
+tooling generates serialisation code from ARXML service interface definitions.
+3.4 Adaptive Application Structure
+An Adaptive Application consists of one or more Processes. Each Process contains one or more Execution
+Contexts (threads). The Execution Management (EM) functional cluster controls the lifecycle of each Process
+based on the Machine State and Function Group States configured in the deployment.
+ ■ Machine State: Top-level state of the AUTOSAR Adaptive machine (e.g., Startup, Running, Shutdown,
+Update).
+
+software components to be developed independently of the hardware they will ultimately run on. This enables
+OEMs to source software components from multiple suppliers and integrate them on any AUTOSAR-compliant
+hardware platform, dramatically reducing integration effort and enabling software reuse.
+1.1 The Two AUTOSAR Platforms
+AUTOSAR currently maintains two distinct platforms addressing different use cases in modern vehicles:
+ ■ Classic Platform (CP): Designed for deeply embedded, real-time ECUs with deterministic timing
+requirements, resource constraints, and hard safety requirements. This is the mature platform used in
+powertrain, chassis, body, and traditional ADAS ECUs. Based on OSEK/VDX OS.
+
+AUTOSAR: AUTomotive Open System ARchitecture Classic Platform & Adaptive Platform – Architecture Overview for ADAS Engineers
+ Knowledge Base Document · RAG-Ready · ADAS Domain
+1. Introduction to AUTOSAR
+AUTOSAR (AUTomotive Open System ARchitecture) is a worldwide development partnership of automotive
+OEMs, Tier 1 suppliers, semiconductor manufacturers, and tool vendors established in 2003. Its primary
+objective is to create and establish an open and standardised software architecture for automotive ECUs
+(Electronic Control Units), enabling hardware-independent software development and facilitating software reuse
+across vehicle models, OEMs, and suppliers.
+AUTOSAR standardises the interfaces between application software and the underlying hardware, allowing
+
+Question: Explain the difference between AUTOSAR Classic and Adaptive Platform
+Helpful Answer:AUTOSAR Classic Platform (CP) and Adaptive Platform (AP) are two distinct platforms
+maintained by AUTOSAR for different use cases in modern vehicles. The CP is designed for deeply embedded,
+real-time ECUs with deterministic timing and resource constraints, while the AP is designed for high-performance
+computing applications in vehicles, particularly autonomous driving, sensor fusion, AI/ML inference, and
+over-the-air software updates.
+https://www.sae.org/standards/classic-platform/
+https://www.sae.org/standards/adaptive-platform/
+https://www.sae.org/standards/classic-platform/
+
+📚 Sources:
+  1. docs\AUTOSAR_Architecture_Overview.pdf (page 3)
+  2. docs\AUTOSAR_Architecture_Overview.pdf (page 4)
+  3. docs\AUTOSAR_Architecture_Overview.pdf (page 0)
+  4. docs\AUTOSAR_Architecture_Overview.pdf (page 0)
+
+Loading weights: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 103/103 [00:00<00:00, 2419.93it/s]
+Loading weights: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 201/201 [00:00<00:00, 2478.80it/s]
+
+============================================================
+Q: What are the safety requirements for AEB?
+============================================================
+
+A: Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
+
+requirements typically span ASIL B (unintended acceleration, minor deceleration errors) to ASIL C (significant
+unintended deceleration or failure to brake in highway scenarios). Key safety goals: (1) ACC shall not cause
+unintended deceleration exceeding X m/s² without driver intent; (2) ACC shall correctly release control and alert
+the driver upon sensor degradation; (3) ACC target selection shall not confuse stationary infrastructure (bridges,
+signs) with moving targets.
+7.2 Automatic Emergency Braking (AEB)
+AEB autonomously applies emergency braking to prevent or mitigate collisions. Failure modes include false
+activations (nuisance braking that can cause rear-end collisions) and missed activations (failure to protect
+
+against genuine hazards). AEB typically carries ASIL D requirements for forward collision cases at highway
+speeds. The safety architecture must include: multi-sensor confirmation, plausibility checks against road
+topology, suppression logic for infrastructure objects, and E2E protected actuation commands.
+7.3 Lane Keeping Assist (LKA) and Lane Departure Warning (LDW)
+LKA applies steering torque to keep the vehicle within lane boundaries. Safety requirements are typically ASIL
+B–C. Key concerns: false activation causing sudden lane departure, failure during lane change, performance in
+poor visibility. Safety mechanisms: lane marking confidence thresholds, driver torque override detection,
+deactivation on turn signal.
+7.4 Sensor Fusion Safety Considerations
+
+ASIL C
+Medium-high
+integrity
+AEB (partial),
+EPS assistance
+Formal analysis, MC/DC
+coverage, FMEDA
+ASIL D
+Highest safety
+integrity
+AEB (full),
+brake-by-wire
+Formal verification,
+hardware redundancy,
+ASIL D SW requirements
+2.1 ASIL Determination Parameters
+The ASIL of a safety goal is determined by evaluating three parameters for each hazardous event identified in
+the HARA:
+ ■ Severity (S0–S3): Potential harm to persons. S0 = no injuries; S1 = light injuries; S2 =
+severe/life-threatening injuries (survival probable); S3 = life-threatening injuries (survival uncertain) or fatal.
+■ Exposure (E0–E4): How frequently the vehicle and its occupants are in the operational situation where the
+hazardous event could occur. E0 = incredibly unlikely; E4 = high probability (many driving hours per day).
+
+independent safety monitor SW component, E2E protected brake request.
+■ ASIL D – Missed activation prevention: AEB shall activate emergency braking for genuine frontal collision
+threats. Primary mechanism: redundant threat assessment algorithms. Secondary: minimum braking
+requirement (partial braking even if full confirmation not achieved).
+■ Infrastructure suppression: AEB must reliably suppress false activations for overhead structures, road
+signs, and parked vehicles on adjacent lanes. This is one of the hardest engineering problems in AEB —
+overly aggressive suppression reduces genuine hazard coverage.
+
+Question: What are the safety requirements for AEB?
+Helpful Answer:Safety goals are: (1) ACC shall not cause unintended deceleration exceeding X m/s², without driver
+intent; (2) ACC shall correctly release control and alert the driver upon sensor degradation; (3) ACC target
+selection shall not confuse stationary infrastructure (bridges, signs) with moving targets.
+Safety mechanisms: multi-sensor confirmation, plausibility checks against road topology, suppression logic for
+infrastructure objects, and E2E protected actuation commands. Key concerns: false activation causing sudden lane
+departure, failure during lane change, performance in poor visibility.
+
+📚 Sources:
+  1. docs\ISO_26262_Functional_Safety_Overview.pdf (page 5)
+  2. docs\ISO_26262_Functional_Safety_Overview.pdf (page 6)
+  3. docs\ISO_26262_Functional_Safety_Overview.pdf (page 1)
+  4. docs\ADAS_Features_Technical_Overview.pdf (page 2)
